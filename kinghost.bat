@@ -1,0 +1,1 @@
+ssh root@guiireal.vps-kinghost.net
