@@ -6,6 +6,7 @@ Set-Alias -Name gbd -Value C:\commands\git-branch-delete.bat
 Set-Alias -Name gbam -Value C:\commands\git-branch-auto-merge.bat
 Set-Alias -Name gbm -Value C:\commands\git-branch-merge.bat
 Set-Alias -Name gbn -Value C:\commands\git-checkout-new-branch.bat
+Set-Alias -Name gf -Value C:\commands\git-fetch.bat
 Set-Alias -Name girao -Value C:\commands\git-init-remote-add-origin.bat
 Set-Alias -Name gpsh -Value C:\commands\git-push.bat
 Set-Alias -Name gpul -Value C:\commands\git-pull.bat
