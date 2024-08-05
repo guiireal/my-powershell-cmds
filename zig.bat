@@ -1,1 +1,1 @@
-ssh dev@177.154.155.98 -p 56722
+ssh root@zigdata.vps-kinghost.net
