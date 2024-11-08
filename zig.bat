@@ -1,1 +1,1 @@
-ssh root@zigdata.vps-kinghost.net
+ssh dev@zigdata.vps-kinghost.net
