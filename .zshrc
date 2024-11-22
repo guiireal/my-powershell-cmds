@@ -104,7 +104,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-PATH=~/.console-ninja/.bin:$PATH
+
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
@@ -129,7 +129,7 @@ alias pa="php artisan"
 alias pads="php artisan db:seed"
 alias pam="php artisan migrate"
 alias pamfs="php artisan migrate:fresh --seed"
-alias pamr="php artisan migrate:rollback"
+alias pamr="php artisan migrate rollback"
 alias paqw="php artisan queue:work"
 alias pas="php artisan serve"
 alias pas8001="php artisan serve --port=8001"
@@ -141,3 +141,12 @@ alias wip="git add . && git commit -m \"wip\" && git push"
 
 # Neovim
 export PATH="$PATH:/opt/nvim-linux64/bin"
+export PATH=$HOME/.local/bin:$PATH
+
+# pnpm
+export PNPM_HOME="/home/guiireal/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

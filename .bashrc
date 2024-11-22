@@ -47,12 +47,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-        # We have color support; assume it's compliant with Ecma-48
-        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-        # a case would tend to support setf rather than setaf.)
-        color_prompt=yes
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
     else
-        color_prompt=
+	color_prompt=
     fi
 fi
 
@@ -120,7 +120,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-PATH=~/.console-ninja/.bin:$PATH
+
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
@@ -144,8 +144,8 @@ alias pa="php artisan"
 alias pads="php artisan db:seed"
 alias pam="php artisan migrate"
 alias pamfs="php artisan migrate:fresh --seed"
-alias pamr="php artisan migrate:rollback"
 alias pas="php artisan serve"
 alias pas8001="php artisan serve --port=8001"
 alias pas8002="php artisan serve --port=8002"
 alias wip="git add . && git commit -m \"wip\" && git push"
+
