@@ -19,6 +19,7 @@ Set-Alias -Name nt -Value C:\commands\npm-test.bat
 Set-Alias -Name pa -Value C:\commands\php-artisan.bat
 Set-Alias -Name pads -Value C:\commands\php-artisan-db-seed.bat
 Set-Alias -Name pam -Value C:\commands\php-artisan-migrate.bat
+Set-Alias -Name pamf -Value C:\commands\php-artisan-migrate-fresh.bat
 Set-Alias -Name pamfs -Value C:\commands\php-artisan-migrate-fresh-seed.bat
 Set-Alias -Name pamr -Value C:\commands\php-artisan-migrate-rollback.bat
 Set-Alias -Name paqw -Value C:\commands\php-artisan-queue-work.bat
