@@ -36,4 +36,5 @@ Set-Alias -Name pnu -Value C:\commands\pnpm-update.bat
 Set-Alias -Name pnt -Value C:\commands\pnpm-test.bat
 Set-Alias -Name pnx -Value C:\commands\pnpm-dlx.bat
 Set-Alias -Name wip -Value C:\commands\wip.bat
+Set-Alias -Name wipai -Value C:\commands\wipai.bat
 Set-Alias -Name zig -Value C:\commands\zig.bat
