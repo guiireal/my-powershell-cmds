@@ -135,7 +135,7 @@ alias pas="php artisan serve"
 alias pas8001="php artisan serve --port=8001"
 alias pas8002="php artisan serve --port=8002"
 alias wip="git add . && git commit -m \"wip\" && git push"
-alias wipai="git add . && oco && git push"
+alias wipai="git add . && oco"
 
 # bun completions
 [ -s "/home/guiireal/.bun/_bun" ] && source "/home/guiireal/.bun/_bun"
