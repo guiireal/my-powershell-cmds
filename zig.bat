@@ -1,1 +1,1 @@
-ssh dev@zigdata.vps-kinghost.net
+ssh -i "C:\Users\Guilherme\.ssh\id_ed25519" -p 2200 dev@zigdata.vps-kinghost.net
