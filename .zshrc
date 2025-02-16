@@ -109,7 +109,7 @@ export NVM_DIR="$HOME/.nvm"
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
-alias dk="docker "
+alias dk="docker"
 alias dkc="docker-compose "
 alias gac="git add . && git commit -m"
 alias gbc="git checkout"
