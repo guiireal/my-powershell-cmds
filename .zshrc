@@ -110,6 +110,7 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
 alias dk="docker "
+alias dkc="docker-compose "
 alias gac="git add . && git commit -m"
 alias gbc="git checkout"
 alias gbd="git checkout main && git branch $1 -d && git push origin -d $1"
