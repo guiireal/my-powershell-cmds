@@ -1,5 +1,6 @@
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/robbyrussell.omp.json" | Invoke-Expression
 Set-Alias -Name dk -Value C:\commands\docker.bat
+Set-Alias -Name dkc -Value C:\commands\docker-compose.bat
 Set-Alias -Name gac -Value C:\commands\git-add-commit.bat
 Set-Alias -Name gbc -Value C:\commands\git-checkout-change-branch.bat
 Set-Alias -Name gbd -Value C:\commands\git-branch-delete.bat
