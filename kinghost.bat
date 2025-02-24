@@ -1,1 +1,1 @@
-ssh root@guiireal.vps-kinghost.net
+ssh -i "C:\Users\Guilherme\.ssh\kinghost_vps_gui" -p 2200 root@guiireal.vps-kinghost.net
