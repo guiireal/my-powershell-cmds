@@ -111,6 +111,7 @@ export PATH=$BUN_INSTALL/bin:$PATH
 
 alias c="composer"
 alias crd="composer run dev"
+alias cu="composer update"
 alias dk="docker"
 alias dkc="docker-compose"
 alias gac="git add . && git commit -m"
@@ -155,4 +156,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-PATH=~/.console-ninja/.bin:$PATH
+
