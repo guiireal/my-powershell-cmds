@@ -31,6 +31,10 @@ Set-Alias -Name pas -Value C:\commands\php-artisan-serve.bat
 Set-Alias -Name pas8001 -Value C:\commands\php-artisan-serve-port-8001.bat
 Set-Alias -Name pas8002 -Value C:\commands\php-artisan-serve-port-8002.bat
 Set-Alias -Name php7 -Value C:\commands\run-php-7.bat
+Set-Alias -Name php81 -Value C:\commands\run-php-8-1.bat
+Set-Alias -Name php82 -Value C:\commands\run-php-8-2.bat
+Set-Alias -Name php83 -Value C:\commands\run-php-8-3.bat
+Set-Alias -Name php84 -Value C:\commands\run-php-8-4.bat
 Set-Alias -Name pn -Value C:\commands\pnpm.bat
 Set-Alias -Name pna -Value C:\commands\pnpm-add.bat
 Set-Alias -Name pni -Value C:\commands\pnpm-install.bat
