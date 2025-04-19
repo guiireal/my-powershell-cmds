@@ -109,9 +109,6 @@ export NVM_DIR="$HOME/.nvm"
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
-alias c="composer"
-alias crd="composer run dev"
-alias cu="composer update"
 alias dk="docker"
 alias dkc="docker-compose"
 alias gac="git add . && git commit -m"
@@ -121,7 +118,7 @@ alias gbam="git checkout $2 && git merge $1 && git push origin $2 && git checkou
 alias gbm="git merge"
 alias gbn="git checkout -b"
 alias gf="git fetch"
-alias girao="git init && git remote add origin"
+alias girao="git init && git remote add origin $1 && git branch -M main"
 alias gpsh="git push origin"
 alias gpul="git pull origin"
 alias nr="npm run"
@@ -156,4 +153,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-
+PATH=~/.console-ninja/.bin:$PATH
