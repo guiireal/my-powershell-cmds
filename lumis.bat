@@ -1,0 +1,1 @@
+ssh -i "C:\Users\Guilherme\.ssh\id_ed25519_lumis" -p 2200 dev@lumisedu.vps-kinghost.net
