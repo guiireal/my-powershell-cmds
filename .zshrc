@@ -104,21 +104,18 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
+# Aliases simples (sem parâmetros)
 alias dk="docker"
 alias dkc="docker-compose"
 alias gac="git add . && git commit -m"
 alias gbc="git checkout"
-alias gbd="git checkout main && git branch $1 -d && git push origin -d $1"
-alias gbam="git checkout $2 && git merge $1 && git push origin $2 && git checkout $1"
 alias gbm="git merge"
 alias gbn="git checkout -b"
 alias gf="git fetch"
-alias girao="git init && git remote add origin $1 && git branch -M main"
 alias gpsh="git push origin"
 alias gpul="git pull origin"
 alias nr="npm run"
@@ -137,6 +134,40 @@ alias pas8001="php artisan serve --port=8001"
 alias pas8002="php artisan serve --port=8002"
 alias wip="git add . && git commit -m \"wip\" && git push"
 alias wipai="git add . && oco"
+
+# Funções Git personalizadas
+function gbd {
+    if [ -z "$1" ]; then
+        echo "Uso: gbd <nome-da-branch>"
+        echo "Exemplo: gbd feature/login"
+        return 1
+    fi
+    echo "Deletando branch '$1'..."
+    git checkout main && git branch -d "$1" && git push origin --delete "$1"
+}
+
+function gbam {
+    if [ -z "$1" ] || [ -z "$2" ]; then
+        echo "Uso: gbam <branch-origem> <branch-destino>"
+        echo "Exemplo: gbam feature/login main"
+        return 1
+    fi
+    echo "Fazendo merge de '$1' para '$2'..."
+    git checkout "$2" && git merge "$1" && git push origin "$2" && git checkout "$1"
+}
+
+function girao {
+    if [ -z "$1" ]; then
+        echo "Uso: girao <url-do-repositorio>"
+        echo "Exemplo: girao https://github.com/usuario/repositorio.git"
+        return 1
+    fi
+    echo "Inicializando repositório Git..."
+    git init && git remote add origin "$1" && git branch -M main
+    echo "Repositório inicializado com sucesso!"
+    echo "Origin: $1"
+    echo "Branch principal: main"
+}
 
 # bun completions
 [ -s "/home/guiireal/.bun/_bun" ] && source "/home/guiireal/.bun/_bun"
