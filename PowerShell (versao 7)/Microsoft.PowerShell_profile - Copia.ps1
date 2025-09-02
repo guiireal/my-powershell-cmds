@@ -14,6 +14,7 @@ Set-Alias -Name gf -Value C:\commands\git-fetch.bat
 Set-Alias -Name girao -Value C:\commands\git-init-remote-add-origin.bat
 Set-Alias -Name gpsh -Value C:\commands\git-push.bat
 Set-Alias -Name gpul -Value C:\commands\git-pull.bat
+Set-Alias -Name hypehost -Value C:\commands\hypehost.bat
 Set-Alias -Name kinghost -Value C:\commands\kinghost.bat
 Set-Alias -Name lumis -Value C:\commands\lumis.bat
 Set-Alias -Name nr -Value C:\commands\npm-run.bat
