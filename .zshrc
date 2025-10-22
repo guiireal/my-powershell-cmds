@@ -109,6 +109,7 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
 # Aliases simples (sem parâmetros)
+alias brasas="ssh -i \"~/pems/keys-e-teacher-aws-producao.pem\" ubuntu@18.118.115.139"
 alias dk="docker"
 alias dkc="docker-compose"
 alias gac="git add . && git commit -m"
@@ -185,3 +186,12 @@ esac
 # pnpm end
 
 PATH=~/.console-ninja/.bin:$PATH
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export OPENAI_API_KEY=""
