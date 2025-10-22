@@ -49,3 +49,5 @@ Set-Alias -Name pnx -Value C:\commands\pnpm-dlx.bat
 Set-Alias -Name wip -Value C:\commands\wip.bat
 Set-Alias -Name wipai -Value C:\commands\wipai.bat
 Set-Alias -Name zig -Value C:\commands\zig.bat
+
+$env:OPENAI_API_KEY = ""
