@@ -1,4 +1,9 @@
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/robbyrussell.omp.json" | Invoke-Expression
+
+$PSStyle.FileInfo.Directory = "`e[38;5;141m"
+$PSStyle.FileInfo.Executable = "`e[38;5;32m"
+$PSStyle.FileInfo.SymbolicLink = "`e[36m"
+
 Set-Alias -Name c -Value C:\commands\composer.bat
 Set-Alias -Name crd -Value C:\commands\composer-run-dev.bat
 Set-Alias -Name cu -Value C:\commands\composer-update.bat
@@ -27,6 +32,8 @@ Set-Alias -Name pam -Value C:\commands\php-artisan-migrate.bat
 Set-Alias -Name pamf -Value C:\commands\php-artisan-migrate-fresh.bat
 Set-Alias -Name pamfs -Value C:\commands\php-artisan-migrate-fresh-seed.bat
 Set-Alias -Name pamr -Value C:\commands\php-artisan-migrate-rollback.bat
+Set-Alias -Name pao -Value C:\commands\php-artisan-optimize.bat
+Set-Alias -Name paoc -Value C:\commands\php-artisan-optimize-clear.bat
 Set-Alias -Name paqw -Value C:\commands\php-artisan-queue-work.bat
 Set-Alias -Name pas -Value C:\commands\php-artisan-serve.bat
 Set-Alias -Name pas8001 -Value C:\commands\php-artisan-serve-port-8001.bat
@@ -51,3 +58,41 @@ Set-Alias -Name wipai -Value C:\commands\wipai.bat
 Set-Alias -Name zig -Value C:\commands\zig.bat
 
 $env:OPENAI_API_KEY = ""
+
+function phpvm {
+    param([string]$version)
+
+    switch ($version) {
+        "74" { $batFile = "php_7_4_33.bat" }
+        "81" { $batFile = "php_8_1_27.bat" }
+        "82" { $batFile = "php_8_2_14.bat" }
+        "83" { $batFile = "php_8_3_17.bat" }
+        "84" { $batFile = "php_8_4_12.bat" }
+        Default { 
+            Write-Host "Versão não reconhecida." -ForegroundColor Red
+            Write-Host "Use: phpvm 74, 81, 82, 83 ou 84" -ForegroundColor Yellow
+            return
+        }
+    }
+
+    $fullPath = "C:\php\phpvm\$batFile"
+    
+    if (-not (Test-Path $fullPath)) {
+        Write-Host "Erro: Arquivo não encontrado: $fullPath" -ForegroundColor Red
+        return
+    }
+
+    $isUserAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+
+    Write-Host "Alternando para PHP $version..." -ForegroundColor Cyan
+
+    if ($isUserAdmin) {
+        Start-Process "cmd.exe" -ArgumentList "/c `"$fullPath`"" -NoNewWindow -Wait
+    } else {
+        Start-Process "cmd.exe" -ArgumentList "/c `"$fullPath`"" -Verb RunAs -Wait
+    }
+    
+    Write-Host "Feito! PHP Atual:" -ForegroundColor Green
+    php -v
+}
+

@@ -78,3 +78,41 @@ function ls {
         }
     } -AutoSize
 }
+
+function phpvm {
+    param([string]$version)
+
+    switch ($version) {
+        "74" { $batFile = "php_7_4_33.bat" }
+        "81" { $batFile = "php_8_1_27.bat" }
+        "82" { $batFile = "php_8_2_14.bat" }
+        "83" { $batFile = "php_8_3_17.bat" }
+        "84" { $batFile = "php_8_4_12.bat" }
+        Default { 
+            Write-Host "Versão não reconhecida." -ForegroundColor Red
+            Write-Host "Use: phpvm 74, 81, 82, 83 ou 84" -ForegroundColor Yellow
+            return
+        }
+    }
+
+    $fullPath = "C:\php\phpvm\$batFile"
+    
+    if (-not (Test-Path $fullPath)) {
+        Write-Host "Erro: Arquivo não encontrado: $fullPath" -ForegroundColor Red
+        return
+    }
+
+    $isUserAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+
+    Write-Host "Alternando para PHP $version..." -ForegroundColor Cyan
+
+    if ($isUserAdmin) {
+        Start-Process "cmd.exe" -ArgumentList "/c `"$fullPath`"" -NoNewWindow -Wait
+    } else {
+        Start-Process "cmd.exe" -ArgumentList "/c `"$fullPath`"" -Verb RunAs -Wait
+    }
+    
+    Write-Host "Feito! PHP Atual:" -ForegroundColor Green
+    php -v
+}
+
