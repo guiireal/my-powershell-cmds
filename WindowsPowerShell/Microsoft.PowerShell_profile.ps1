@@ -1,4 +1,5 @@
 oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH/robbyrussell.omp.json" | Invoke-Expression
+
 Set-Alias -Name c -Value C:\commands\composer.bat
 Set-Alias -Name crd -Value C:\commands\composer-run-dev.bat
 Set-Alias -Name cu -Value C:\commands\composer-update.bat
@@ -27,15 +28,19 @@ Set-Alias -Name pam -Value C:\commands\php-artisan-migrate.bat
 Set-Alias -Name pamf -Value C:\commands\php-artisan-migrate-fresh.bat
 Set-Alias -Name pamfs -Value C:\commands\php-artisan-migrate-fresh-seed.bat
 Set-Alias -Name pamr -Value C:\commands\php-artisan-migrate-rollback.bat
+Set-Alias -Name pao -Value C:\commands\php-artisan-optimize.bat
+Set-Alias -Name paoc -Value C:\commands\php-artisan-optimize-clear.bat
 Set-Alias -Name paqw -Value C:\commands\php-artisan-queue-work.bat
 Set-Alias -Name pas -Value C:\commands\php-artisan-serve.bat
 Set-Alias -Name pas8001 -Value C:\commands\php-artisan-serve-port-8001.bat
 Set-Alias -Name pas8002 -Value C:\commands\php-artisan-serve-port-8002.bat
+Set-Alias -Name pest -Value C:\commands\pest-php.bat
 Set-Alias -Name php7 -Value C:\commands\run-php-7.bat
 Set-Alias -Name php81 -Value C:\commands\run-php-8-1.bat
 Set-Alias -Name php82 -Value C:\commands\run-php-8-2.bat
 Set-Alias -Name php83 -Value C:\commands\run-php-8-3.bat
 Set-Alias -Name php84 -Value C:\commands\run-php-8-4.bat
+Set-Alias -Name pint -Value C:\commands\pint-php.bat
 Set-Alias -Name pn -Value C:\commands\pnpm.bat
 Set-Alias -Name pna -Value C:\commands\pnpm-add.bat
 Set-Alias -Name pni -Value C:\commands\pnpm-install.bat
@@ -47,3 +52,29 @@ Set-Alias -Name pnx -Value C:\commands\pnpm-dlx.bat
 Set-Alias -Name wip -Value C:\commands\wip.bat
 Set-Alias -Name wipai -Value C:\commands\wipai.bat
 Set-Alias -Name zig -Value C:\commands\zig.bat
+
+$env:OPENAI_API_KEY = ""
+
+if (Test-Path alias:ls) { Remove-Item alias:ls -Force }
+
+function ls {
+    $purple = "$([char]27)[38;5;141m"
+    $green  = "$([char]27)[32m"
+    $cyan   = "$([char]27)[36m"
+    $reset  = "$([char]27)[0m"
+
+    Get-ChildItem @args | Format-Table Mode, LastWriteTime, Length, @{
+        Label="Name"; 
+        Expression={
+            if ($_.PSIsContainer) { 
+                $purple + $_.Name + $reset 
+            } elseif ($_.Name -match "\.(exe|bat|ps1|cmd)$") {
+                $green + $_.Name + $reset
+            } elseif ($_.Target -ne $null) {
+                $cyan + $_.Name + $reset
+            } else {
+                $_.Name
+            }
+        }
+    } -AutoSize
+}
